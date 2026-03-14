@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Study Mood Music Generator — Select your mood and task to get the perfect study playlist. Focus, chill, deep work, and late night vibes.">
+    <title>Study Mood Music Generator</title>
+
+    <!-- Google Fonts: Inter for clean modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated particle canvas background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Gradient overlay for depth -->
+    <div class="gradient-overlay"></div>
+
+    <!-- Main application container -->
+    <div class="app-container">
+
+        <!-- Header / Hero section -->
+        <header class="header" id="header">
+            <div class="logo">
+                <span class="logo-icon">🎧</span>
+                <span class="logo-text">StudyVibe</span>
+            </div>
+            <p class="tagline">Find your perfect study soundtrack</p>
+        </header>
+
+        <!-- Mood Selector Section -->
+        <section class="selector-section" id="mood-section">
+            <h2 class="section-title">How are you feeling?</h2>
+            <p class="section-subtitle">Select your current mood</p>
+            <div class="selector-grid" id="mood-grid">
+                <button class="selector-btn mood-btn" data-mood="focus" id="mood-focus">
+                    <span class="btn-icon">🎯</span>
+                    <span class="btn-label">Focus</span>
+                    <span class="btn-desc">Laser sharp concentration</span>
+                </button>
+                <button class="selector-btn mood-btn" data-mood="chill" id="mood-chill">
+                    <span class="btn-icon">🌊</span>
+                    <span class="btn-label">Chill</span>
+                    <span class="btn-desc">Relaxed & calm vibes</span>
+                </button>
+                <button class="selector-btn mood-btn" data-mood="deepwork" id="mood-deepwork">
+                    <span class="btn-icon">🧠</span>
+                    <span class="btn-label">Deep Work</span>
+                    <span class="btn-desc">Intense productivity</span>
+                </button>
+                <button class="selector-btn mood-btn" data-mood="latenight" id="mood-latenight">
+                    <span class="btn-icon">🌙</span>
+                    <span class="btn-label">Late Night</span>
+                    <span class="btn-desc">Midnight study session</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Task Selector Section -->
+        <section class="selector-section" id="task-section">
+            <h2 class="section-title">What are you working on?</h2>
+            <p class="section-subtitle">Pick your task</p>
+            <div class="selector-grid" id="task-grid">
+                <button class="selector-btn task-btn" data-task="coding" id="task-coding">
+                    <span class="btn-icon">💻</span>
+                    <span class="btn-label">Coding</span>
+                    <span class="btn-desc">Build & debug</span>
+                </button>
+                <button class="selector-btn task-btn" data-task="studying" id="task-studying">
+                    <span class="btn-icon">📚</span>
+                    <span class="btn-label">Studying</span>
+                    <span class="btn-desc">Learn & memorize</span>
+                </button>
+                <button class="selector-btn task-btn" data-task="reading" id="task-reading">
+                    <span class="btn-icon">📖</span>
+                    <span class="btn-label">Reading</span>
+                    <span class="btn-desc">Deep dive into books</span>
+                </button>
+                <button class="selector-btn task-btn" data-task="writing" id="task-writing">
+                    <span class="btn-icon">✍️</span>
+                    <span class="btn-label">Writing</span>
+                    <span class="btn-desc">Essays & notes</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Generate Button -->
+        <div class="generate-section" id="generate-section">
+            <button class="generate-btn" id="generate-btn" disabled>
+                <span class="generate-btn-text">Generate Playlist</span>
+                <span class="generate-btn-icon">→</span>
+            </button>
+            <p class="generate-hint" id="generate-hint">Select a mood and task to continue</p>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loader-container" id="loader" style="display:none;">
+            <div class="loader">
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+            </div>
+            <p class="loader-text">Curating your perfect playlist…</p>
+        </div>
+
+        <!-- Playlist Results Section -->
+        <section class="playlist-section" id="playlist-section" style="display:none;">
+            <div class="playlist-header">
+                <h2 class="playlist-title" id="playlist-title"></h2>
+                <p class="playlist-meta" id="playlist-meta"></p>
+            </div>
+
+            <!-- Embedded Player -->
+            <div class="player-container" id="player-container">
+                <!-- YouTube iframe injected by JS -->
+            </div>
+
+            <!-- Track List -->
+            <div class="tracklist" id="tracklist">
+                <h3 class="tracklist-title">Recommended Tracks</h3>
+                <ul class="tracklist-list" id="tracklist-list">
+                    <!-- Track items injected by JS -->
+                </ul>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="playlist-actions">
+                <button class="action-btn" id="new-playlist-btn">
+                    <span>↻</span> New Playlist
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>StudyVibe &copy; 2026 &mdash; Built for focused minds</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
